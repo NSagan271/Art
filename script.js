@@ -6,17 +6,17 @@ $(window).load(function(){
 
   var c=document.getElementById("myCanvas");
   c.width = w;
-  c.height = h-60;
+  c.height = h-30;
   var ctx=c.getContext("2d");
 
   var x1;
   var y1;
   var theta;
   var len = 12;
+  var thickness=1;
 
 
-
-  var array = ["blue", "fuchsia", "chartreuse", "white", "yellow", "cyan","red","orange","purple","grey"];
+  var array = ["blue", "fuchsia", "chartreuse", "white", "yellow", "cyan", "red", "orange", "purple", "grey"];
 
 
 
@@ -35,7 +35,7 @@ $(window).load(function(){
   function draw(){
     ctx.fillStyle="black";
     ctx.fillRect(0,0,w,h);
-  num = Math.floor(Math.random()*31);
+  num = Math.floor(Math.random()*42);
   for(var x = 0;x<w;x+=5){
     for(var y = 0;y<h;y+=5){
       x1 = (x-w/2)/80;
@@ -75,12 +75,22 @@ $(window).load(function(){
         case 28:dy = 1/Math.asin(Math.asin(1/y1)/x1*Math.tan(y1/x1));break;
         case 29:dy = 1/Math.sin(Math.asin(1/y1)/x1*Math.tan(y1/x1));break;
         case 30:dy = Math.pow(Math.cos(-x1*y1),2);break;
+        case 31:dy = x1*x1;break;
+        case 32:dy = x1*x1*y1;break;
+        case 33:dy = x1/y1*x1;break;
+        case 34:dy = Math.abs(x1/y1);break;
+        case 35:dy = Math.sin(x1/y1);break;
+        case 36:dy = 1/Math.sin(x1*y1);break;
+        case 37:dy = Math.pow(Math.abs(x1*y1),Math.abs(y1/x1));break;
+        case 38:dy = Math.pow(Math.cos(x1*y1),Math.abs(y1/x1));break;
+        case 39:dy = Math.pow(Math.tan(x1%y1),Math.sin(y1*x1));break;
+        case 40:dy = Math.atan(Math.tan(x1%y1)/Math.sin(y1%x1));break;
         default:dy = Math.pow(Math.tan(-x1*y1),2)*x1/y1;
       }
 
       var dx = 1;
       theta = Math.atan(-dy/dx);
-      drawLine(x-len*Math.cos(theta),y-len*Math.sin(theta),x+len*Math.cos(theta),y+len*Math.sin(theta),array[Math.floor(Math.random()*(array.length))],1);
+      drawLine(x-len*Math.cos(theta),y-len*Math.sin(theta),x+len*Math.cos(theta),y+len*Math.sin(theta),array[Math.floor(Math.random()*(array.length))],thickness);
 
     }
   }
