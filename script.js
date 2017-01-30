@@ -35,7 +35,54 @@ $(window).load(function(){
   function draw(){
     ctx.fillStyle="black";
     ctx.fillRect(0,0,w,h);
-  num = Math.floor(Math.random()*42);
+  num = Math.floor(Math.random()*45);
+  switch(num){
+    case 0: $(".eq").text("y%x");break;
+    case 1: $(".eq").text("y*x");break;
+    case 2: $(".eq").text("y/x");break;
+    case 3: $(".eq").text("y+x");break;
+    case 4: $(".eq").text("-x/y");break;
+    case 5:$(".eq").text("tan(x+y)");break;
+    case 6:$(".eq").text("tan(x*y)");break;
+    case 7:$(".eq").text("atan(x/y)");break;
+    case 8:$(".eq").text("atan(-x/y)");break;
+    case 9:$(".eq").text("acos(-x/y)");break;
+    case 10:$(".eq").text("atan(x*y)");break;
+    case 11:$(".eq").text("1/sin(y)");break;
+    case 12:$(".eq").text("sin(y+cos(x)-tan(x+y))");break;
+    case 13:$(".eq").text("sin(y+cos(x)-tan(x/y))");break;
+    case 14:$(".eq").text( "tan(x+cos(x)-tan(x/y))");break;
+    case 15:$(".eq").text( "1/sin(e^x)+cos(x)-tan(x/y)");break;
+    case 16:$(".eq").text( "y^(cos(x)-tan(x/y))");break;
+    case 17:$(".eq").text("|y|^(sin(x)*tan(-x%y))");break;
+    case 18:$(".eq").text("|y|^(sin(x)*tan(-x/y))");break;
+    case 19:$(".eq").text( "|y|^(sin(y)*tan(-y/x))");break;
+    case 20:$(".eq").text("tan(|y|-x*tan(-x%y))");break;
+    case 21:$(".eq").text("tan(|y|-x*tan(-y%x))");break;
+    case 22:$(".eq").text("tan(|y|/x*tan(-y%x))");break;
+    case 23:$(".eq").text( "cos(|x|/y*atan(-y%x))");break;
+    case 24:$(".eq").text( "1/acos(|x|/y1*atan(-y%x))");break;
+    case 25:$(".eq").text( "1/acos(|x|/y1*cos(y*x))");break;
+    case 26:$(".eq").text("1/asin(tan(x)/x*cos(y*x))");break;
+    case 27:$(".eq").text("1/asin(tan(x)/x*cos(y/x))");break;
+    case 28:$(".eq").text("1/asin(asin(1/y)/x*tan(y/x))");break;
+    case 29:$(".eq").text("1/sin(asin(1/y)/x*tan(y/x))");break;
+    case 30:$(".eq").text("cos(-x*y)^2");break;
+    case 31:$(".eq").text("x^2");break;
+    case 32:$(".eq").text("x^2/y");break;
+    case 33:$(".eq").text("x/y^2");break;
+    case 34:$(".eq").text( "|x/y|");break;
+    case 35:$(".eq").text( "sin(x/y)");break;
+    case 36:$(".eq").text("1/sin(x*y)");break;
+    case 37:$(".eq").text( "|x*y|^|y/x|");break;
+    case 38:$(".eq").text( "cos(x*y)^|y/x|)");break;
+    case 39:$(".eq").text( "tan(x%y)^sin(y*x)");break;
+    case 40:$(".eq").text("atan(tan(x%y)/sin(y%x))");break;
+    case 41:$(".eq").text("ln(x%y)");break;
+    case 42:$(".eq").text("ln(x*y)/e^y");break;
+    case 43:$(".eq").text("ln(atan(x/y))");break;
+    default:$(".eq").text("tan(-x*y)^2*x/y");
+  }
   for(var x = 0;x<w;x+=5){
     for(var y = 0;y<h;y+=5){
       x1 = (x-w/2)/80;
@@ -77,7 +124,7 @@ $(window).load(function(){
         case 30:dy = Math.pow(Math.cos(-x1*y1),2);break;
         case 31:dy = x1*x1;break;
         case 32:dy = x1*x1*y1;break;
-        case 33:dy = x1/y1*x1;break;
+        case 33:dy = x1/y1/y1;break;
         case 34:dy = Math.abs(x1/y1);break;
         case 35:dy = Math.sin(x1/y1);break;
         case 36:dy = 1/Math.sin(x1*y1);break;
@@ -85,6 +132,9 @@ $(window).load(function(){
         case 38:dy = Math.pow(Math.cos(x1*y1),Math.abs(y1/x1));break;
         case 39:dy = Math.pow(Math.tan(x1%y1),Math.sin(y1*x1));break;
         case 40:dy = Math.atan(Math.tan(x1%y1)/Math.sin(y1%x1));break;
+        case 41:dy = (Math.log(x1%y1));break;
+        case 42:dy = (Math.log(x1*y1)/Math.pow(Math.E,y1));break;
+        case 43:dy = (Math.log(Math.atan(x1/y1)));break;
         default:dy = Math.pow(Math.tan(-x1*y1),2)*x1/y1;
       }
 
