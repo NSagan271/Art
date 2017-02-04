@@ -83,7 +83,7 @@ function load(){
       case 33:$(".eq").text("x/y^2");break;
       case 34:$(".eq").text( "|x/y|");break;
       case 35:$(".eq").text( "sin(x/y)");break;
-      case 36:$(".eq").text("1/sin(x*y)");break;
+      case 36:$(".eq").text("1/sin(x*y)");break; 
       case 37:$(".eq").text( "|x*y|^|y/x|");break;
       case 38:$(".eq").text( "cos(x*y)^|y/x|)");break;
       case 39:$(".eq").text( "tan(x%y)^sin(y*x)");break;
